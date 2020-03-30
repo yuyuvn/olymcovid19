@@ -1,6 +1,6 @@
 use log::*;
 use serde_derive::{Deserialize, Serialize};
-use strum::IntoEnumIterator;
+// use strum::IntoEnumIterator;
 use strum_macros::{EnumIter, ToString};
 use yew::format::Json;
 use yew::services::storage::{Area, StorageService};
@@ -119,36 +119,49 @@ impl Component for App {
         info!("rendered!");
         html! {
             <div class="todomvc-wrapper">
-                <section class="todoapp">
-                    <header class="header">
-                        <h1>{ "todos" }</h1>
-                        { self.view_input() }
-                    </header>
-                    <section class="main">
-                        <input class="toggle-all" type="checkbox" checked=self.state.is_all_completed() onclick=self.link.callback(|_| Msg::ToggleAll) />
-                        <ul class="todo-list">
-                            { for self.state.entries.iter().filter(|e| self.state.filter.fit(e))
-                                .enumerate()
-                                .map(|val| self.view_entry(val)) }
-                        </ul>
-                    </section>
-                    <footer class="footer">
-                        <span class="todo-count">
-                            <strong>{ self.state.total() }</strong>
-                            { " item(s) left" }
-                        </span>
-                        <ul class="filters">
-                            { for Filter::iter().map(|flt| self.view_filter(flt)) }
-                        </ul>
-                        <button class="clear-completed" onclick=self.link.callback(|_| Msg::ClearCompleted)>
-                            { format!("Clear completed ({})", self.state.total_completed()) }
-                        </button>
-                    </footer>
+                <header class="header">
+                    <h1>{ "Olymcovid19 ranking" }</h1>
+                </header>
+                <section class="rank-table">
+                    <div class="rank-table-header">{ "Rank" } <span class="arrows down"></span></div>
+                    <div class="rank-table-header">{ "Country" } <span class="arrows"></span></div>
+                    <div class="rank-table-header">{ "Confirmed" } <span class="arrows"></span></div>
+                    <div class="rank-table-header">{ "Deaths" } <span class="arrows"></span></div>
+                    <div class="rank-table-header">{ "Recovered" } <span class="arrows"></span></div>
+                    <div class="rank-table-header">{ "+/-" } <span class="arrows"></span></div>
+
+                    <div class="rank-table-data">{ "1" }</div>
+                    <div class="rank-table-data">{"United States"}</div>
+                    <div class="rank-table-data">{"142537"}</div>
+                    <div class="rank-table-data">{"2510"}</div>
+                    <div class="rank-table-data">{"4767"}</div>
+                    <div class="rank-table-data">{"0 "}<span class="arrows"></span></div>
+
+                    <div class="rank-table-data">{"2"}</div>
+                    <div class="rank-table-data">{"Italy"}</div>
+                    <div class="rank-table-data">{"97689"}</div>
+                    <div class="rank-table-data">{"10779"}</div>
+                    <div class="rank-table-data">{"13030"}</div>
+                    <div class="rank-table-data">{"1 "}<span class="arrows up"></span></div>
+
+                    <div class="rank-table-data">{"3"}</div>
+                    <div class="rank-table-data">{"China"}</div>
+                    <div class="rank-table-data">{"81470"}</div>
+                    <div class="rank-table-data">{"3304"}</div>
+                    <div class="rank-table-data">{"75770"}</div>
+                    <div class="rank-table-data">{"-1 "}<span class="arrows down"></span></div>
+                </section>
+                <section class="rank-table-paginate">
+                    <ul class="pagination">
+                        <li class="paginate-button active"><a href="#">{"1"}</a></li>
+                        <li class="paginate-button"><a href="#">{"2"}</a></li>
+                        <li class="paginate-button"><a href="#">{"3"}</a></li>
+                        <li class="paginate-button"><a href="#">{"4"}</a></li>
+                        <li class="paginate-button"><a href="#">{"5"}</a></li>
+                    </ul>
                 </section>
                 <footer class="info">
-                    <p>{ "Double-click to edit a todo" }</p>
-                    <p>{ "Written by " }<a href="https://github.com/DenisKolodin/" target="_blank">{ "Denis Kolodin" }</a></p>
-                    <p>{ "Part of " }<a href="http://todomvc.com/" target="_blank">{ "TodoMVC" }</a></p>
+                    <p>{ "Written by " }<a href="https://github.com/yuyuvn/" target="_blank">{ "Clicia Scarlet" }</a></p>
                 </footer>
             </div>
         }
