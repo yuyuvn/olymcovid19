@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     command: yarn run start:dev
     volumes:
+      - ./src/:/app/src/
+      - ./static/:/app/static/
       - cache-pkg:/app/pkg
       - cache-dist:/app/dist
       - cache-target:/app/target
