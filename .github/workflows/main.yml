@@ -14,10 +14,10 @@ jobs:
       - name: Build image
         run: |
           docker build . --tag temporary-app-image
-          docker cp "$(docker create temporary-app-image):/app/pkg" ./pkg
+          docker cp "$(docker create temporary-app-image):/app/pkg" ./release
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: pkg
+          FOLDER: release
