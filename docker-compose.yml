@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    command: yarn run start:dev
+    volumes:
+      - cache-pkg:/app/pkg
+      - cache-dist:/app/dist
+      - cache-target:/app/target
+      - cache-node-modules:/app/node_modules
+
+volumes:
+  cache-pkg:
+  cache-dist:
+  cache-target:
+  cache-node-modules:
