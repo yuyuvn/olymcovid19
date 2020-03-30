@@ -1,5 +1,7 @@
+![Build and Deploy](https://github.com/yuyuvn/olymcovid19/workflows/Build%20and%20Deploy/badge.svg)
+
 ## About
-TODO
+Olymcovid19 Ranking Table
 
 ## 🚴 Usage
 
