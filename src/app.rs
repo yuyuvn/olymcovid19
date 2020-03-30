@@ -129,27 +129,31 @@ impl Component for App {
                     <div class="rank-table-header">{ "Deaths" } <span class="arrows"></span></div>
                     <div class="rank-table-header">{ "Recovered" } <span class="arrows"></span></div>
                     <div class="rank-table-header">{ "+/-" } <span class="arrows"></span></div>
+                    <div class="rank-table-header">{ "Positions" }</div>
 
                     <div class="rank-table-data">{ "1" }</div>
-                    <div class="rank-table-data">{"United States"}</div>
-                    <div class="rank-table-data">{"142537"}</div>
-                    <div class="rank-table-data">{"2510"}</div>
-                    <div class="rank-table-data">{"4767"}</div>
-                    <div class="rank-table-data">{"0 "}<span class="arrows"></span></div>
+                    <div class="rank-table-data rank-table-data-country"><img alt="USA" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/us.svg" /> {"United States"}</div>
+                    <div class="rank-table-data">{"142,537"}</div>
+                    <div class="rank-table-data">{"2,510"}</div>
+                    <div class="rank-table-data">{"4,767"}</div>
+                    <div class="rank-table-data">{"0 "}</div>
+                    <div class="rank-table-data"><span class="arrows"></span></div>
 
                     <div class="rank-table-data">{"2"}</div>
-                    <div class="rank-table-data">{"Italy"}</div>
-                    <div class="rank-table-data">{"97689"}</div>
-                    <div class="rank-table-data">{"10779"}</div>
-                    <div class="rank-table-data">{"13030"}</div>
-                    <div class="rank-table-data">{"1 "}<span class="arrows up"></span></div>
+                    <div class="rank-table-data rank-table-data-country"><img alt="Italia" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/it.svg" /> {"Italy"}</div>
+                    <div class="rank-table-data">{"97,689"}</div>
+                    <div class="rank-table-data">{"10,779"}</div>
+                    <div class="rank-table-data">{"13,030"}</div>
+                    <div class="rank-table-data">{"1 "}</div>
+                    <div class="rank-table-data"><span class="arrows up"></span></div>
 
                     <div class="rank-table-data">{"3"}</div>
-                    <div class="rank-table-data">{"China"}</div>
-                    <div class="rank-table-data">{"81470"}</div>
-                    <div class="rank-table-data">{"3304"}</div>
-                    <div class="rank-table-data">{"75770"}</div>
-                    <div class="rank-table-data">{"-1 "}<span class="arrows down"></span></div>
+                    <div class="rank-table-data rank-table-data-country"><img alt="China" src="https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/cn.svg" /> {"China"}</div>
+                    <div class="rank-table-data">{"81,470"}</div>
+                    <div class="rank-table-data">{"3,304"}</div>
+                    <div class="rank-table-data">{"75,770"}</div>
+                    <div class="rank-table-data">{"-1 "}</div>
+                    <div class="rank-table-data"><span class="arrows down"></span></div>
                 </section>
                 <section class="rank-table-paginate">
                     <ul class="pagination">
