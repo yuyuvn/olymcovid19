@@ -212,11 +212,7 @@ function makeClosure(arg0, arg1, dtor, f) {
     real.original = state;
     return real;
 }
-function __wbg_adapter_28(arg0, arg1, arg2, arg3) {
-    wasm._dyn_core__ops__function__Fn__A__B___Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h7e5850685e220307(arg0, arg1, arg2, arg3);
-}
-
-function __wbg_adapter_31(arg0, arg1, arg2) {
+function __wbg_adapter_28(arg0, arg1, arg2) {
     var ret = wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h24e0584fdec2e8e9(arg0, arg1, arg2);
     return ret;
 }
@@ -240,8 +236,12 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     real.original = state;
     return real;
 }
-function __wbg_adapter_34(arg0, arg1, arg2) {
+function __wbg_adapter_31(arg0, arg1, arg2) {
     wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hac087ec3d6c572c3(arg0, arg1, addHeapObject(arg2));
+}
+
+function __wbg_adapter_34(arg0, arg1, arg2, arg3) {
+    wasm._dyn_core__ops__function__Fn__A__B___Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h7e5850685e220307(arg0, arg1, arg2, arg3);
 }
 
 /**
@@ -785,17 +785,17 @@ export const __wbindgen_function_table = function() {
 };
 
 export const __wbindgen_closure_wrapper341 = function(arg0, arg1, arg2) {
-    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_31);
+    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_28);
     return addHeapObject(ret);
 };
 
 export const __wbindgen_closure_wrapper557 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 203, __wbg_adapter_34);
+    var ret = makeMutClosure(arg0, arg1, 203, __wbg_adapter_31);
     return addHeapObject(ret);
 };
 
 export const __wbindgen_closure_wrapper339 = function(arg0, arg1, arg2) {
-    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_28);
+    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_34);
     return addHeapObject(ret);
 };
 
