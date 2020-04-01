@@ -154,9 +154,9 @@ impl Component for App {
                 <section class="rank-table">
                     <div class="rank-table-header">{ "Rank" } <span class="arrows down"></span></div>
                     <div class="rank-table-header">{ "Country" } <span class="arrows"></span></div>
-                    <div class="rank-table-header">{ "Confirmed" } <span class="arrows"></span></div>
-                    <div class="rank-table-header">{ "Deaths" } <span class="arrows"></span></div>
-                    <div class="rank-table-header">{ "Recovered" } <span class="arrows"></span></div>
+                    <div class="rank-table-header autohide">{ "Confirmed" } <span class="arrows"></span></div>
+                    <div class="rank-table-header autohide">{ "Deaths" } <span class="arrows"></span></div>
+                    <div class="rank-table-header autohide">{ "Recovered" } <span class="arrows"></span></div>
                     <div class="rank-table-header">{ "+/-" } <span class="arrows"></span></div>
                     <div class="rank-table-header">{ "Positions" }</div>
 
@@ -226,9 +226,9 @@ impl App {
             <>
                 <div class="rank-table-data">{ entry.rank }</div>
                 <div class="rank-table-data rank-table-data-country"><img alt={ entry.name.as_str() } src={ helpers::get_country_code(entry.name.as_str()) } /> { entry.name.as_str() }</div>
-                <div class="rank-table-data">{ entry.confirmed }</div>
-                <div class="rank-table-data">{ entry.deaths }</div>
-                <div class="rank-table-data">{ entry.recovered }</div>
+                <div class="rank-table-data autohide">{ entry.confirmed }</div>
+                <div class="rank-table-data autohide">{ entry.deaths }</div>
+                <div class="rank-table-data autohide">{ entry.recovered }</div>
                 <div class="rank-table-data">{ entry.rank_changed } </div>
                 <div class="rank-table-data">{ self.view_diff(entry.rank_changed) }</div>
             </>
