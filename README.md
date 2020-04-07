@@ -2,6 +2,7 @@
 
 ## About
 Olymcovid19 Ranking Table
+Data from [pomber](https://github.com/pomber/covid19)
 
 ## 🚴 Usage
 
