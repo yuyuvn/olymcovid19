@@ -193,30 +193,6 @@ function debugString(val) {
     return className;
 }
 
-function makeClosure(arg0, arg1, dtor, f) {
-    const state = { a: arg0, b: arg1, cnt: 1 };
-    const real = (...args) => {
-        // First up with a closure we increment the internal reference
-        // count. This ensures that the Rust closure environment won't
-        // be deallocated while we're invoking it.
-        state.cnt++;
-        try {
-            return f(state.a, state.b, ...args);
-        } finally {
-            if (--state.cnt === 0) {
-                wasm.__wbindgen_export_2.get(dtor)(state.a, state.b);
-                state.a = 0;
-            }
-        }
-    };
-    real.original = state;
-    return real;
-}
-function __wbg_adapter_28(arg0, arg1, arg2) {
-    var ret = wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h24e0584fdec2e8e9(arg0, arg1, arg2);
-    return ret;
-}
-
 function makeMutClosure(arg0, arg1, dtor, f) {
     const state = { a: arg0, b: arg1, cnt: 1 };
     const real = (...args) => {
@@ -236,12 +212,51 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     real.original = state;
     return real;
 }
-function __wbg_adapter_31(arg0, arg1, arg2) {
+function __wbg_adapter_28(arg0, arg1, arg2) {
     wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hac087ec3d6c572c3(arg0, arg1, addHeapObject(arg2));
 }
 
-function __wbg_adapter_34(arg0, arg1, arg2, arg3) {
-    wasm._dyn_core__ops__function__Fn__A__B___Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h7e5850685e220307(arg0, arg1, arg2, arg3);
+function makeClosure(arg0, arg1, dtor, f) {
+    const state = { a: arg0, b: arg1, cnt: 1 };
+    const real = (...args) => {
+        // First up with a closure we increment the internal reference
+        // count. This ensures that the Rust closure environment won't
+        // be deallocated while we're invoking it.
+        state.cnt++;
+        try {
+            return f(state.a, state.b, ...args);
+        } finally {
+            if (--state.cnt === 0) {
+                wasm.__wbindgen_export_2.get(dtor)(state.a, state.b);
+                state.a = 0;
+            }
+        }
+    };
+    real.original = state;
+    return real;
+}
+function __wbg_adapter_31(arg0, arg1, arg2, arg3) {
+    wasm._dyn_core__ops__function__Fn__A__B___Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hb2f17acf360cccec(arg0, arg1, arg2, arg3);
+}
+
+let stack_pointer = 32;
+
+function addBorrowedObject(obj) {
+    if (stack_pointer == 1) throw new Error('out of js stack');
+    heap[--stack_pointer] = obj;
+    return stack_pointer;
+}
+function __wbg_adapter_34(arg0, arg1, arg2) {
+    try {
+        wasm._dyn_core__ops__function__FnMut___A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h960da298e2251570(arg0, arg1, addBorrowedObject(arg2));
+    } finally {
+        heap[stack_pointer++] = undefined;
+    }
+}
+
+function __wbg_adapter_37(arg0, arg1, arg2) {
+    var ret = wasm._dyn_core__ops__function__Fn__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hbe9829760191cbe0(arg0, arg1, arg2);
+    return ret;
 }
 
 /**
@@ -331,7 +346,7 @@ export const __wbindgen_string_new = function(arg0, arg1) {
     return addHeapObject(ret);
 };
 
-export const __wbg_Window_630d6326fa0742c2 = function(arg0) {
+export const __wbg_Window_63ea798bda772143 = function(arg0) {
     var ret = getObject(arg0).Window;
     return addHeapObject(ret);
 };
@@ -341,7 +356,7 @@ export const __wbindgen_is_undefined = function(arg0) {
     return ret;
 };
 
-export const __wbg_WorkerGlobalScope_083da1311c1389d2 = function(arg0) {
+export const __wbg_WorkerGlobalScope_cf778d0287a47728 = function(arg0) {
     var ret = getObject(arg0).WorkerGlobalScope;
     return addHeapObject(ret);
 };
@@ -485,12 +500,24 @@ export const __wbg_abort_0e465742db5609db = function(arg0) {
     getObject(arg0).abort();
 };
 
+export const __wbg_addEventListener_91aeb4a2a4221f90 = function(arg0, arg1, arg2, arg3, arg4) {
+    try {
+        getObject(arg0).addEventListener(getStringFromWasm0(arg1, arg2), getObject(arg3), getObject(arg4));
+    } catch (e) {
+        handleError(e)
+    }
+};
+
 export const __wbg_removeEventListener_e6d1dae0854e625e = function(arg0, arg1, arg2, arg3, arg4) {
     try {
         getObject(arg0).removeEventListener(getStringFromWasm0(arg1, arg2), getObject(arg3), arg4 !== 0);
     } catch (e) {
         handleError(e)
     }
+};
+
+export const __wbg_stopPropagation_61518782238c8a3c = function(arg0) {
+    getObject(arg0).stopPropagation();
 };
 
 export const __wbg_lastChild_a7e588170b940ea7 = function(arg0) {
@@ -784,18 +811,23 @@ export const __wbindgen_function_table = function() {
     return addHeapObject(ret);
 };
 
-export const __wbindgen_closure_wrapper341 = function(arg0, arg1, arg2) {
-    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_28);
+export const __wbindgen_closure_wrapper353 = function(arg0, arg1, arg2) {
+    var ret = makeClosure(arg0, arg1, 130, __wbg_adapter_31);
     return addHeapObject(ret);
 };
 
-export const __wbindgen_closure_wrapper557 = function(arg0, arg1, arg2) {
-    var ret = makeMutClosure(arg0, arg1, 203, __wbg_adapter_31);
+export const __wbindgen_closure_wrapper583 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 219, __wbg_adapter_28);
     return addHeapObject(ret);
 };
 
-export const __wbindgen_closure_wrapper339 = function(arg0, arg1, arg2) {
-    var ret = makeClosure(arg0, arg1, 123, __wbg_adapter_34);
+export const __wbindgen_closure_wrapper351 = function(arg0, arg1, arg2) {
+    var ret = makeClosure(arg0, arg1, 130, __wbg_adapter_37);
+    return addHeapObject(ret);
+};
+
+export const __wbindgen_closure_wrapper417 = function(arg0, arg1, arg2) {
+    var ret = makeMutClosure(arg0, arg1, 150, __wbg_adapter_34);
     return addHeapObject(ret);
 };
 
