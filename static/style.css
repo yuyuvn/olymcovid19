@@ -59,6 +59,11 @@ h1 {
   display: block;
 }
 
+.rank-table-header a {
+  text-decoration: none;
+  color: #474747;
+}
+
 .arrows {
   margin-left: 5px;
   margin-bottom: -3px;
